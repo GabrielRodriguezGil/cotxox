@@ -3,6 +3,10 @@ package edu.teamrocket;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.teamrocket.carrera.*;
+import edu.teamrocket.conductores.*;
+import edu.teamrocket.tarifa.*;
+
 public class Cotxox {
 
     public static void main(String[] args) {

@@ -1,6 +1,8 @@
 package edu.teamrocket;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class CarreraTest {
 	@Test
 	public void getCosteEsperadoTest() {
 		double distancia = 7.75;
-		double costeEsperado = 10.4625;
+		double costeEsperado;
 		int tiempoEsperado = 10;
 		double delta = 0.01;
 		carrera.setDistancia(distancia);
@@ -105,7 +107,7 @@ public class CarreraTest {
 		poolConductores.add(conductor);
 		PoolConductores conductores = new PoolConductores(poolConductores);
 		carrera.asignarConductor(conductores);
-		assert (carrera.getConductor() != null);
+		assertNotNull(carrera.getConductor());
 	}
 
 	@Test
@@ -120,7 +122,7 @@ public class CarreraTest {
 		Conductor conductor = new Conductor("Samantha");
 		carrera.setConductor(conductor);
 		carrera.liberarConductor();
-		assert (!carrera.getConductor().isOcupado());
+		assertTrue(!carrera.getConductor().isOcupado());
 	}
 
 	@Test

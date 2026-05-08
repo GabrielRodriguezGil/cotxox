@@ -79,7 +79,7 @@ public class Carrera {
         return propina;
     }
 
-    public void setPropina(int propina) {
+    public void recibirPropina(int propina) {
         this.propina = propina;
     }
 
