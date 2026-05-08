@@ -2,9 +2,10 @@ package edu.teamrocket.carrera;
 
 import java.util.Optional;
 import edu.teamrocket.conductores.*;
+import edu.teamrocket.tarifa.Tarifa;
 
 public class Carrera {
-    private String tarjetCredito;
+    private String tarjetaCredito;
     private String origen;
     private String destino;
     private double distancia;
@@ -15,11 +16,11 @@ public class Carrera {
     private Optional<Conductor> conductor;
 
     public Carrera(String tarjetaCredito) {
-        this.tarjetCredito = tarjetaCredito;
+        this.tarjetaCredito = tarjetaCredito;
     }
 
-    public String getTarjetCredito() {
-        return tarjetCredito;
+    public String getTarjetaCredito() {
+        return tarjetaCredito;
     }
 
     public String getOrigen() {
@@ -70,6 +71,10 @@ public class Carrera {
         return costeTotal;
     }
 
+    public double getCosteEsperado() {
+        return Tarifa.getCosteTotalEsperado(this);
+    }
+
     public int getPropina() {
         return propina;
     }
@@ -82,8 +87,16 @@ public class Carrera {
         this.conductor = Optional.ofNullable(conductor);
     }
 
+    public void asignarConductor(PoolConductores conductores) {
+        setConductor(conductores.asignarConductor());
+    }
+
     public Conductor getConductor() {
         return this.conductor.get();
+    }
+
+    public void liberarConductor() {
+        this.conductor.get().setOcupado(false);
     }
 
 }
